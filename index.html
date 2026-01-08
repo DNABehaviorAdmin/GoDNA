@@ -92,6 +92,11 @@
 <body
     class="bg-slate-900 text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-slate-900">
 
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress"
+        class="fixed top-0 left-0 h-1 bg-accent z-[100] w-0 transition-all duration-100 ease-out shadow-[0_0_10px_rgba(45,212,191,0.5)]">
+    </div>
+
     <!-- Layer 1: Ambient Blurred Blobs (Dual Parallax) -->
     <div id="ambient-layer" class="fixed inset-0 pointer-events-none -z-20 overflow-hidden opacity-30">
         <div
@@ -173,13 +178,19 @@
                         insights.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6">
-                        <a href="#work"
+                        <a href="mailto:dnacare@dnabehavior.com"
                             class="magnetic-btn px-8 py-4 bg-white text-slate-900 rounded-full font-semibold hover:scale-105 hover:bg-slate-50 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                            View Work
+                            Contact Hugh
                         </a>
-                        <a href="mailto:info@example.com"
-                            class="magnetic-btn px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300">
-                            Book a Conversation
+                        <a href="assets/downloads/DNAB Leadership Book Final.pdf" download
+                            class="magnetic-btn px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300 flex items-center gap-2 group">
+                            <span>Get the Book</span>
+                            <svg class="w-4 h-4 opacity-70 group-hover:translate-y-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -188,7 +199,7 @@
                 <div class="relative order-1 md:order-2 flex justify-center md:justify-end reveal-section delay-100"
                     data-parallax-speed="0.1">
                     <div id="portrait-card"
-                        class="relative w-80 h-96 md:w-[26rem] md:h-[32rem] rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl">
+                        class="relative w-full max-w-xs h-96 md:max-w-none md:w-[26rem] md:h-[32rem] rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl mx-auto md:mx-0">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10 opacity-60">
                         </div>
                         <img src="assets/hugh-portrait.jpg" alt="Portrait of Hugh Massie"
@@ -204,26 +215,55 @@
             <!-- Sticky Header Placeholder logic applied via JS mostly, but structure here -->
             <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16">
                 <!-- Text Content -->
-                <div class="md:col-span-2 space-y-10 reveal-section">
+                <div class="md:col-span-2 space-y-10">
                     <div class="space-y-4">
                         <h2
-                            class="text-3xl md:text-4xl font-bold text-white sticky top-24 inline-block backdrop-blur-md py-2 px-4 rounded-lg bg-slate-900/50 border border-white/5 z-40">
+                            class="text-3xl md:text-4xl font-bold text-white sticky top-24 inline-block backdrop-blur-md py-2 px-4 rounded-lg bg-slate-900 border border-white/10 shadow-xl z-40">
                             About Hugh</h2>
-                        <p class="text-xl md:text-2xl text-accent-purple font-medium leading-relaxed">
+                        <p class="text-xl md:text-2xl text-accent-purple font-medium leading-relaxed reveal-section">
                             Executive Chairman & Founder of <a href="https://dnabehavior.com" target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-white hover:text-accent underline decoration-accent/30 transition-all">DNA
                                 Behavior</a>.
                         </p>
                     </div>
-                    <div class="text-slate-400 space-y-6 text-lg font-light leading-loose">
-                        <p>Hugh Massie is a pioneer in behavioral economics and the leader behind <strong>DNA Behavior
-                                International</strong>. He has dedicated his career to solving "money problems" by
-                            addressing the root "people problems," bridging the gap between financial reality and human
-                            behavior.</p>
+                    <div class="text-slate-400 space-y-6 text-lg font-light leading-loose reveal-section delay-100">
+                        <p class="font-medium text-slate-200">Titan 100 CEO | Behavioral AI Solutions Architect |
+                            Behavioral Economics Pioneer</p>
+
+                        <p>Hugh Massie is a High-Stakes Decision Orchestrator and the leader behind <strong>DNA Behavior
+                                International</strong>. A "Boys Without Fathers" Mentor, Award-Winning Innovator,
+                            Devoted Dad, and Keen Golfer.</p>
+
                         <p>He works with CEOs, boards, and leadership teams to align their "DNA"—their natural
-                            behaviors—with their business goals. The outcome is not just better strategy, but better
-                            execution, higher engagement, and quantifiable results.</p>
+                            behaviors—with their business goals. The outcome is better strategy, execution, and
+                            engagement.</p>
+
+                        <div class="pt-6 border-t border-white/5 space-y-4">
+                            <h3 class="text-white font-bold text-lg">Connect with Hugh</h3>
+                            <div class="flex gap-4">
+                                <a href="https://www.linkedin.com/in/hughmassie/" target="_blank"
+                                    class="p-3 bg-white/5 rounded-full hover:bg-white/10 hover:text-accent transition-colors">
+                                    <span class="sr-only">LinkedIn</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                    </svg>
+                                </a>
+                                <a href="https://www.hlpster.com/hlpers/clo7znc0z0001ban8mfu9i262" target="_blank"
+                                    class="px-4 py-3 bg-white/5 rounded-full hover:bg-white/10 hover:text-accent transition-colors text-sm font-semibold">
+                                    View Hlpster Profile
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=KAa5twIzWgw" target="_blank"
+                                    class="p-3 bg-white/5 rounded-full hover:bg-white/10 hover:text-accent transition-colors">
+                                    <span class="sr-only">YouTube</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
 
                         <div class="pt-8 border-t border-white/5">
                             <h3 class="text-white font-bold text-lg mb-4">The Beginning</h3>
@@ -261,7 +301,9 @@
             <div class="ambient-shadow"></div>
             <div class="max-w-7xl mx-auto px-6">
                 <div class="mb-20 reveal-section">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 sticky top-24 inline-block z-40">Key Work
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-white mb-3 sticky top-24 inline-block z-40 backdrop-blur-md py-2 px-4 rounded-lg bg-slate-900 border border-white/10 shadow-xl">
+                        Key Work
                     </h2>
                     <p class="text-slate-400 font-light text-lg">Ventures & Impact</p>
                 </div>
@@ -322,20 +364,158 @@
                     </a>
 
                     <!-- Card 3 -->
-                    <article class="spotlight-card rounded-2xl p-8 group reveal-section delay-300">
+                    <!-- Card 3: Book Download -->
+                    <a href="assets/downloads/DNAB Leadership Book Final.pdf" download
+                        class="block spotlight-card rounded-2xl p-8 group reveal-section delay-300 hover:border-accent-blue/30 relative overflow-hidden">
                         <div
-                            class="w-12 h-12 mb-8 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue group-hover:scale-110 transition-transform duration-300">
+                            class="absolute inset-0 bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="w-12 h-12 mb-8 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue group-hover:scale-110 transition-transform duration-300 relative z-10">
+                            <!-- Download/Book Icon -->
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-accent-blue transition-colors">
-                            Advisory & Boards</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Strategic guidance for high-growth companies.
-                            Hugh serves on multiple boards, bringing behavioral clarity to complex decisions.</p>
-                    </article>
+                        <h3
+                            class="text-xl font-bold text-white mb-4 group-hover:text-accent-blue transition-colors flex items-center gap-2 relative z-10">
+                            Leadership DNA
+                            <span
+                                class="text-[10px] uppercase tracking-wide bg-white/10 text-slate-300 px-2 py-0.5 rounded-full border border-white/10">PDF</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed relative z-10">
+                            The definitive guide to unlocking human potential in business. Download Hugh's comprehensive
+                            book on behavioral leadership.
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Services & Speaking Grid (Merged) -->
+                <div class="mt-12 pt-12 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Consulting Solutions -->
+                    <div class="reveal-section">
+                        <div
+                            class="spotlight-card p-10 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group hover:border-accent-blue/30 transition-colors">
+                            <div
+                                class="absolute inset-0 bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-4 relative z-10">
+                                <span
+                                    class="w-10 h-10 rounded-xl bg-accent-blue/20 flex items-center justify-center text-accent-blue text-sm font-bold">01</span>
+                                Consulting Solutions
+                            </h3>
+
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-slate-300 relative z-10">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-blue mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Business Performance</strong>
+                                        Aligning people and financial behaviors.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-blue mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Leadership Development</strong>
+                                        Hiring, talent, and performance coaching.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-blue mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Risk Management</strong> Behavioral
+                                        risk and financial planning.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-blue mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">M&A Due Diligence</strong> Assessing
+                                        behavioral compatibility.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-blue mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Customer Experience</strong>
+                                        Behavioral marketing and segmentation.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Presentations & Workshops -->
+                    <div class="reveal-section delay-100">
+                        <div
+                            class="spotlight-card p-10 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group hover:border-accent-purple/30 transition-colors">
+                            <div
+                                class="absolute inset-0 bg-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-4 relative z-10">
+                                <span
+                                    class="w-10 h-10 rounded-xl bg-accent-purple/20 flex items-center justify-center text-accent-purple text-sm font-bold">02</span>
+                                Presentations & Workshops
+                            </h3>
+
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-slate-300 relative z-10">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-purple mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Behavioral Personalization</strong>
+                                        The future of AI and engagement.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-purple mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Leadership Value Creation</strong>
+                                        Unlocking potential for profit.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-purple mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Entrepreneurial Quantum
+                                            Leaps</strong> Accelerating growth strategies.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent-purple mt-1 shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                    <span><strong class="text-white block mb-1">Behaviorally SMART™
+                                            Decisions</strong> Reducing bias in high-stakes.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -344,7 +524,9 @@
         <section id="speaking" class="py-32 relative bg-white/[0.01]" data-section-theme="purple">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="mb-20 reveal-section">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 sticky top-24 inline-block z-40">Podcasts
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-white mb-3 sticky top-24 inline-block z-40 backdrop-blur-md py-2 px-4 rounded-lg bg-slate-900 border border-white/10 shadow-xl">
+                        Podcasts
                         & Media</h2>
                     <p class="text-slate-400 font-light">Sharing insights on a global stage</p>
                 </div>
@@ -370,23 +552,47 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-4 mt-4 md:mt-0">
+                            <!-- Apple Button -->
+                            <a href="https://podcasts.apple.com/us/podcast/the-behavioral-economics-podcast/id1844700855"
+                                target="_blank"
+                                class="magnetic-btn px-6 py-3 bg-white text-slate-900 rounded-full font-bold hover:scale-105 hover:bg-slate-200 transition-all text-sm flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.7 19.5c-.75 1.1-1.5 2.2-2.7 2.2-1.1 0-1.45-.65-2.7-.65-1.3 0-1.65.65-2.7.65-1.1 0-1.9-1.1-2.7-2.2C6.75 17.7 5.25 14.5 5.25 11c0-3.3 2.1-5.7 6-5.7 1.15 0 2.1.8 2.7.8.55 0 1.5-.8 2.8-.8 1.1 0 2 .45 2.5 1.15-2.2 1.35-1.85 4.5 0 5.2-.4 1.2-1 2.3-1.8 3.5.05.15.15.2.25.35zM15 3.5c.65-1 1.15-2 1-3.15-1.05.05-2.3.7-3 1.55-.65.8-1.2 2-1 3.1.95.05 2.3-.65 3-1.5z" />
+                                </svg>
+                                Apple Podcasts
+                            </a>
+
                             <!-- Spotify Button -->
-                            <a href="#"
-                                class="magnetic-btn px-6 py-3 bg-[#1DB954] text-black rounded-full font-bold hover:scale-105 transition-all text-sm flex items-center gap-2">
+                            <a href="https://open.spotify.com/show/4m023IsfGpY2ZnJSqEwOef?si=e6a1db18640e468e"
+                                target="_blank"
+                                class="magnetic-btn px-6 py-3 bg-[#1DB954] text-black rounded-full font-bold hover:scale-105 hover:shadow-glow transition-all text-sm flex items-center gap-2">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 4.32-1.32 9.779-.6 13.5 1.56.42.18.6.72.241 1.26zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.4-1.02 15.66 1.44.539.3.66 1.02.359 1.56-.24.48-1.02.6-1.56.36z" />
                                 </svg>
                                 Spotify
                             </a>
-                            <!-- Apple Button -->
-                            <a href="#"
-                                class="magnetic-btn px-6 py-3 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-200 transition-all text-sm flex items-center gap-2">
+
+                            <!-- YouTube Button -->
+                            <a href="https://youtube.com/@thebehavioraleconomicspodcast?si=Lt4RR_aqR2K1j2-X"
+                                target="_blank"
+                                class="magnetic-btn px-6 py-3 bg-[#FF0000] text-white rounded-full font-bold hover:scale-105 hover:shadow-glow transition-all text-sm flex items-center gap-2">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
-                                        d="M18.7 19.5c-.75 1.1-1.5 2.2-2.7 2.2-1.1 0-1.45-.65-2.7-.65-1.3 0-1.65.65-2.7.65-1.1 0-1.9-1.1-2.7-2.2C6.75 17.7 5.25 14.5 5.25 11c0-3.3 2.1-5.7 6-5.7 1.15 0 2.1.8 2.7.8.55 0 1.5-.8 2.8-.8 1.1 0 2 .45 2.5 1.15-2.2 1.35-1.85 4.5 0 5.2-.4 1.2-1 2.3-1.8 3.5.05.15.15.2.25.35zM15 3.5c.65-1 1.15-2 1-3.15-1.05.05-2.3.7-3 1.55-.65.8-1.2 2-1 3.1.95.05 2.3-.65 3-1.5z" />
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                                 </svg>
-                                Apple Podcasts
+                                YouTube
+                            </a>
+
+                            <!-- DNA Behavior Button -->
+                            <a href="https://dnabehavior.com/podcasts" target="_blank"
+                                class="magnetic-btn px-6 py-3 bg-[#0f172a] border border-white/20 text-white rounded-full font-bold hover:scale-105 hover:border-accent hover:text-accent transition-all text-sm flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                                DNA Behavior
                             </a>
                         </div>
                     </div>
@@ -456,6 +662,32 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <!-- Toast Notification -->
+    <div id="toast-notification"
+        class="fixed bottom-4 left-4 right-4 md:left-auto md:bottom-6 md:right-6 z-[60] translate-y-32 opacity-0 transition-all duration-500 pointer-events-none flex justify-center md:block">
+        <div
+            class="bg-slate-900/90 backdrop-blur-md border border-accent/20 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 min-w-[300px]">
+            <div class="text-accent">
+                <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-accent">Download Started</h4>
+                <p class="text-xs text-slate-400">Your PDF is on its way.</p>
+            </div>
+            <button id="close-toast" class="ml-auto text-slate-500 hover:text-white transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
 </body>
 
 </html>

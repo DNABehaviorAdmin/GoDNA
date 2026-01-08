@@ -231,4 +231,105 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         animate();
     }
+
+    /* --- 10. Download Toast Notification --- */
+    /* --- 10. Toast Notification System --- */
+    const toast = document.getElementById('toast-notification');
+    const closeToastBtn = document.getElementById('close-toast');
+    const toastTitle = toast.querySelector('h4');
+    const toastMessage = toast.querySelector('p');
+    const toastIconContainer = toast.querySelector('.text-accent');
+    let toastTimeout;
+
+    // Icons
+    const icons = {
+        download: `<svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>`,
+        mail: `<svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`
+    };
+
+    function showToast(title, message, iconType = 'download') {
+        if (!toast) return;
+
+        // Update Content
+        if (toastTitle) toastTitle.textContent = title;
+        if (toastMessage) toastMessage.textContent = message;
+        if (toastIconContainer && icons[iconType]) toastIconContainer.innerHTML = icons[iconType];
+
+        // Reset timeout if already showing
+        clearTimeout(toastTimeout);
+
+        // Show
+        toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+
+        // Auto hide after 4s
+        toastTimeout = setTimeout(() => {
+            hideToast();
+        }, 4000);
+    }
+
+    function hideToast() {
+        if (!toast) return;
+        toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+    }
+
+    // 1. Download Links
+    const downloadLinks = document.querySelectorAll('a[download]');
+    downloadLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            showToast('Download Started', 'Your PDF is on its way.', 'download');
+        });
+    });
+
+    // 2. Mailto Links (Contact)
+    const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+    mailtoLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            showToast('Opening Email', 'Launching your default email client...', 'mail');
+        });
+    });
+
+    if (closeToastBtn) {
+        closeToastBtn.addEventListener('click', hideToast);
+    }
+
+    /* --- 11. Custom Cursor Logic --- */
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    // Only active on non-touch devices
+    if (window.matchMedia("(pointer: fine)").matches && cursorDot && cursorOutline) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline follows with slight delay/smoothness via CSS transition or direct animate
+            // Using animate for smoother trail
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Hover Effect
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .spotlight-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+    }
+
+    /* --- 12. Reading Progress Bar --- */
+    const progressBar = document.getElementById('reading-progress');
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = `${scrollPercent}%`;
+        });
+    }
 });
