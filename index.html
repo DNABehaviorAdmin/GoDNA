@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugh Massie | Executive Chairman & Founder of DNA Behavior</title>
+    <meta name="description"
+        content="Hugh Massie is the Executive Chairman & Founder of DNA Behavior, a global behavioral insights company. He helps leaders unlock human potential through Financial DNA and Business DNA.">
+    <meta name="keywords"
+        content="Hugh Massie, DNA Behavior, Executive Chairman, Behavioral Strategist, Financial DNA, Business DNA, Behavioral AI, Titan 100 CEO, Leadership Advisory">
+    <meta name="author" content="Hugh Massie">
+    <link rel="canonical" href="https://hughmassie.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hughmassie.com/">
+    <meta property="og:title" content="Hugh Massie | Behavior. Strategy. Leadership.">
+    <meta property="og:description"
+        content="Pioneering behavioral insights to transform leadership and business strategy. Unlock human potential and drive sustainable growth.">
+    <meta property="og:image" content="https://hughmassie.com/assets/hugh-portrait.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hughmassie.com/">
+    <meta property="twitter:title" content="Hugh Massie | Behavior. Strategy. Leadership.">
+    <meta property="twitter:description"
+        content="Pioneering behavioral insights to transform leadership and business strategy. Unlock human potential and drive sustainable growth.">
+    <meta property="twitter:image" content="https://hughmassie.com/assets/hugh-portrait.jpg">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hugh Massie",
+      "url": "https://hughmassie.com",
+      "image": "https://hughmassie.com/assets/hugh-portrait.jpg",
+      "jobTitle": "Executive Chairman & Founder",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "DNA Behavior",
+        "url": "https://dnabehavior.com"
+      },
+      "description": "Hugh Massie is the Executive Chairman & Founder of DNA Behavior, dedicated to solving money problems by addressing root people problems.",
+      "sameAs": [
+        "https://www.linkedin.com/in/hughmassie",
+        "https://twitter.com/hughmassie",
+        "https://dnabehavior.com"
+      ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0f172a',
+                        accent: '#2dd4bf', /* Teal base */
+                        'accent-purple': '#a78bfa',
+                        'accent-blue': '#60a5fa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 40px rgba(45, 212, 191, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FontAwesome (for subtle icons if needed, using SVG mostly though) -->
+</head>
+
+<body
+    class="bg-slate-900 text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-slate-900">
+
+    <!-- Layer 1: Ambient Blurred Blobs (Dual Parallax) -->
+    <div id="ambient-layer" class="fixed inset-0 pointer-events-none -z-20 overflow-hidden opacity-30">
+        <div
+            class="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] mix-blend-screen animate-float delay-100">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] mix-blend-screen animate-float delay-300">
+        </div>
+    </div>
+
+    <!-- Layer 2: Particle Canvas -->
+    <canvas id="background-canvas" class="fixed inset-0 pointer-events-none -z-10 opacity-40"
+        aria-hidden="true"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-white/0">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="magnetic-btn group flex items-center gap-2 relative">
+                <span
+                    class="text-2xl font-bold tracking-tight text-white group-hover:text-accent transition-colors duration-300">HM<span
+                        class="text-accent">.</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <li><a href="#about"
+                        class="nav-link hover:text-white transition-colors relative magnetic-btn inline-block p-2">About</a>
+                </li>
+                <li><a href="#work"
+                        class="nav-link hover:text-white transition-colors relative magnetic-btn inline-block p-2">Work</a>
+                </li>
+                <li><a href="#speaking"
+                        class="nav-link hover:text-white transition-colors relative magnetic-btn inline-block p-2">Media</a>
+                </li>
+                <li><a href="#testimonials"
+                        class="nav-link hover:text-white transition-colors relative magnetic-btn inline-block p-2">Testimonials</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 magnetic-btn"
+                aria-label="Toggle mobile menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-20 left-0 w-full bg-slate-900/95 border-b border-white/10 backdrop-blur-xl transition-all duration-300">
+            <ul class="flex flex-col p-6 gap-6 text-center text-slate-300 text-lg font-light">
+                <li><a href="#about" class="block hover:text-accent">About</a></li>
+                <li><a href="#work" class="block hover:text-accent">Work</a></li>
+                <li><a href="#speaking" class="block hover:text-accent">Media</a></li>
+                <li><a href="#testimonials" class="block hover:text-accent">Testimonials</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center relative pt-20" data-section-theme="teal">
+            <div class="ambient-shadow"></div>
+            <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+                <!-- Text Content -->
+                <div class="space-y-8 order-2 md:order-1 text-center md:text-left reveal-section"
+                    data-parallax-speed="0.05">
+                    <span
+                        class="inline-block text-accent font-semibold tracking-wider uppercase text-xs md:text-sm bg-accent/10 px-3 py-1 rounded-full border border-accent/20">Behavior.
+                        Strategy. Leadership.</span>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.1]">
+                        Hugh Massie
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-400 max-w-lg mx-auto md:mx-0 leading-relaxed font-light">
+                        Helping growth-minded leaders unleash exponential growth with powerful behavior and money
+                        insights.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6">
+                        <a href="#work"
+                            class="magnetic-btn px-8 py-4 bg-white text-slate-900 rounded-full font-semibold hover:scale-105 hover:bg-slate-50 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                            View Work
+                        </a>
+                        <a href="mailto:info@example.com"
+                            class="magnetic-btn px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-semibold hover:bg-white/5 hover:border-white/40 transition-all duration-300">
+                            Book a Conversation
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portrait Card (Tilt & Depth) -->
+                <div class="relative order-1 md:order-2 flex justify-center md:justify-end reveal-section delay-100"
+                    data-parallax-speed="0.1">
+                    <div id="portrait-card"
+                        class="relative w-80 h-96 md:w-[26rem] md:h-[32rem] rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10 opacity-60">
+                        </div>
+                        <img src="assets/hugh-portrait.jpg" alt="Portrait of Hugh Massie"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-32 relative" data-section-theme="purple">
+            <div class="ambient-shadow"></div>
+            <!-- Sticky Header Placeholder logic applied via JS mostly, but structure here -->
+            <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16">
+                <!-- Text Content -->
+                <div class="md:col-span-2 space-y-10 reveal-section">
+                    <div class="space-y-4">
+                        <h2
+                            class="text-3xl md:text-4xl font-bold text-white sticky top-24 inline-block backdrop-blur-md py-2 px-4 rounded-lg bg-slate-900/50 border border-white/5 z-40">
+                            About Hugh</h2>
+                        <p class="text-xl md:text-2xl text-accent-purple font-medium leading-relaxed">
+                            Executive Chairman & Founder of <a href="https://dnabehavior.com" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-white hover:text-accent underline decoration-accent/30 transition-all">DNA
+                                Behavior</a>.
+                        </p>
+                    </div>
+                    <div class="text-slate-400 space-y-6 text-lg font-light leading-loose">
+                        <p>Hugh Massie is a pioneer in behavioral economics and the leader behind <strong>DNA Behavior
+                                International</strong>. He has dedicated his career to solving "money problems" by
+                            addressing the root "people problems," bridging the gap between financial reality and human
+                            behavior.</p>
+                        <p>He works with CEOs, boards, and leadership teams to align their "DNA"—their natural
+                            behaviors—with their business goals. The outcome is not just better strategy, but better
+                            execution, higher engagement, and quantifiable results.</p>
+
+                        <div class="pt-8 border-t border-white/5">
+                            <h3 class="text-white font-bold text-lg mb-4">The Beginning</h3>
+                            <p>It started with a realization. As a Chartered Accountant in Australia, Hugh saw a
+                                pattern: brilliant financial plans failing because of ignored human behavior. He
+                                realized that <em>"money problems are actually people problems."</em></p>
+                            <p class="mt-4">Driven by this insight, he left traditional accounting to pioneer a new
+                                field. In 2001, he founded <strong>DNA Behavior</strong> in Atlanta, building the
+                                world's first system to scientifically measure and align human behavior with financial
+                                and business performance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Chips -->
+                <div class="flex flex-col justify-center gap-5 reveal-section delay-200">
+                    <div
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-slate-300 backdrop-blur-md hover:border-accent-purple/50 hover:text-white transition-colors cursor-default animate-float delay-0 shadow-lg">
+                        Behavioral Strategy</div>
+                    <div
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-slate-300 backdrop-blur-md hover:border-accent-purple/50 hover:text-white transition-colors cursor-default animate-float delay-100 shadow-lg">
+                        Leadership Advisory</div>
+                    <div
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-slate-300 backdrop-blur-md hover:border-accent-purple/50 hover:text-white transition-colors cursor-default animate-float delay-200 shadow-lg">
+                        Board Governance</div>
+                    <div
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-slate-300 backdrop-blur-md hover:border-accent-purple/50 hover:text-white transition-colors cursor-default animate-float delay-300 shadow-lg">
+                        Wealth & Family Dynamics</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Work Section -->
+        <section id="work" class="py-32 relative" data-section-theme="blue">
+            <div class="ambient-shadow"></div>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-20 reveal-section">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 sticky top-24 inline-block z-40">Key Work
+                    </h2>
+                    <p class="text-slate-400 font-light text-lg">Ventures & Impact</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <a href="https://dnabehavior.com" target="_blank" rel="noopener noreferrer"
+                        class="block spotlight-card rounded-2xl p-8 group reveal-section delay-100 hover:border-accent-blue/30 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="w-12 h-12 mb-8 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue group-hover:scale-110 transition-transform duration-300 relative z-10">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-white mb-4 group-hover:text-accent-blue transition-colors flex items-center gap-2 relative z-10">
+                            DNA Behavior
+                            <svg class="w-4 h-4 opacity-50 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
+                            </svg>
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed relative z-10">The world's only all-in-one
+                            <strong>behavioral data platform</strong>. Providing valid, reliable insights (Financial
+                            DNA, Business DNA) to unlock human potential.
+                        </p>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="https://godna.ai" target="_blank" rel="noopener noreferrer"
+                        class="block spotlight-card rounded-2xl p-8 group reveal-section delay-200 hover:border-accent-blue/30 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="w-12 h-12 mb-8 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue group-hover:scale-110 transition-transform duration-300 relative z-10">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-white mb-4 group-hover:text-accent-blue transition-colors flex items-center gap-2 relative z-10">
+                            GoDNA.ai
+                            <span
+                                class="text-[10px] uppercase tracking-wide bg-accent-blue/20 text-accent-blue px-2 py-0.5 rounded-full border border-accent-blue/20">New</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed relative z-10">Scalable behavioral intelligence
+                            AI for the modern world. The upcoming digital assistant empowering everyone to know, engage,
+                            and grow.</p>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <article class="spotlight-card rounded-2xl p-8 group reveal-section delay-300">
+                        <div
+                            class="w-12 h-12 mb-8 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-accent-blue transition-colors">
+                            Advisory & Boards</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Strategic guidance for high-growth companies.
+                            Hugh serves on multiple boards, bringing behavioral clarity to complex decisions.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speaking & Media Section -->
+        <section id="speaking" class="py-32 relative bg-white/[0.01]" data-section-theme="purple">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-20 reveal-section">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 sticky top-24 inline-block z-40">Podcasts
+                        & Media</h2>
+                    <p class="text-slate-400 font-light">Sharing insights on a global stage</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <!-- Podcast Feature -->
+                    <div
+                        class="spotlight-card p-8 rounded-2xl flex flex-col justify-between gap-6 group reveal-section delay-100 border-accent-purple/20 bg-accent-purple/5">
+                        <div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-accent-purple/20 flex items-center justify-center text-accent-purple shrink-0">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="text-2xl font-bold text-white">The Hugh Massie Podcast</h4>
+                                <p class="text-slate-400 max-w-xl">Deep dives into the psychology of wealth, leadership
+                                    behavior, and the future of human potential. Join Hugh as he interviews global
+                                    changemakers.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-4 mt-4 md:mt-0">
+                            <!-- Spotify Button -->
+                            <a href="#"
+                                class="magnetic-btn px-6 py-3 bg-[#1DB954] text-black rounded-full font-bold hover:scale-105 transition-all text-sm flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 4.32-1.32 9.779-.6 13.5 1.56.42.18.6.72.241 1.26zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.4-1.02 15.66 1.44.539.3.66 1.02.359 1.56-.24.48-1.02.6-1.56.36z" />
+                                </svg>
+                                Spotify
+                            </a>
+                            <!-- Apple Button -->
+                            <a href="#"
+                                class="magnetic-btn px-6 py-3 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-200 transition-all text-sm flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.7 19.5c-.75 1.1-1.5 2.2-2.7 2.2-1.1 0-1.45-.65-2.7-.65-1.3 0-1.65.65-2.7.65-1.1 0-1.9-1.1-2.7-2.2C6.75 17.7 5.25 14.5 5.25 11c0-3.3 2.1-5.7 6-5.7 1.15 0 2.1.8 2.7.8.55 0 1.5-.8 2.8-.8 1.1 0 2 .45 2.5 1.15-2.2 1.35-1.85 4.5 0 5.2-.4 1.2-1 2.3-1.8 3.5.05.15.15.2.25.35zM15 3.5c.65-1 1.15-2 1-3.15-1.05.05-2.3.7-3 1.55-.65.8-1.2 2-1 3.1.95.05 2.3-.65 3-1.5z" />
+                                </svg>
+                                Apple Podcasts
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-32 relative" data-section-theme="teal">
+            <div class="ambient-shadow"></div>
+            <div class="max-w-7xl mx-auto px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-white mb-20 text-center reveal-section sticky top-24 inline-block relative left-1/2 -translate-x-1/2 z-40 bg-slate-900/50 backdrop-blur px-6 py-2 rounded-full border border-white/5">
+                    What Others Say</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Testimonial 1 -->
+                    <article class="spotlight-card p-10 rounded-3xl relative reveal-section delay-100">
+                        <svg class="w-10 h-10 text-accent/50 mb-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21L14.017 18C14.017 16.896 14.11 16.03 14.296 15.402C14.482 14.774 14.764 14.263 15.142 13.869C15.52 13.475 16.036 13.131 16.69 12.837C17.344 12.543 18.162 12.396 19.146 12.396V6L19 6C17.656 6 16.516 6.306 15.58 6.918C14.644 7.53 13.924 8.358 13.42 9.402C12.916 10.446 12.664 11.694 12.664 13.146V21H14.017ZM8.05 21V18C8.05 16.896 8.143 16.03 8.329 15.402C8.515 14.774 8.797 14.263 9.175 13.869C9.553 13.475 10.069 13.131 10.723 12.837C11.377 12.543 12.195 12.396 13.179 12.396V6L13.033 6C11.689 6 10.549 6.306 9.613 6.918C8.677 7.53 7.957 8.358 7.453 9.402C6.949 10.446 6.697 11.694 6.697 13.146V21H8.05Z">
+                            </path>
+                        </svg>
+                        <blockquote class="text-2xl text-slate-200 font-light leading-relaxed mb-10">
+                            "Hugh's insights completely changed how we approach hiring and team dynamics. The ROI on
+                            behavioral alignment is undeniable."
+                        </blockquote>
+                        <footer class="text-base flex items-center gap-4">
+                            <div class="h-px bg-white/20 w-12"></div>
+                            <div>
+                                <strong class="text-white block font-semibold">Sarah Jenkins</strong>
+                                <span class="text-slate-500">CEO of FinTech Solutions</span>
+                            </div>
+                        </footer>
+                    </article>
+
+                    <!-- Testimonial 2 -->
+                    <article class="spotlight-card p-10 rounded-3xl relative reveal-section delay-200">
+                        <svg class="w-10 h-10 text-accent/50 mb-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21L14.017 18C14.017 16.896 14.11 16.03 14.296 15.402C14.482 14.774 14.764 14.263 15.142 13.869C15.52 13.475 16.036 13.131 16.69 12.837C17.344 12.543 18.162 12.396 19.146 12.396V6L19 6C17.656 6 16.516 6.306 15.58 6.918C14.644 7.53 13.924 8.358 13.42 9.402C12.916 10.446 12.664 11.694 12.664 13.146V21H14.017ZM8.05 21V18C8.05 16.896 8.143 16.03 8.329 15.402C8.515 14.774 8.797 14.263 9.175 13.869C9.553 13.475 10.069 13.131 10.723 12.837C11.377 12.543 12.195 12.396 13.179 12.396V6L13.033 6C11.689 6 10.549 6.306 9.613 6.918C8.677 7.53 7.957 8.358 7.453 9.402C6.949 10.446 6.697 11.694 6.697 13.146V21H8.05Z">
+                            </path>
+                        </svg>
+                        <blockquote class="text-2xl text-slate-200 font-light leading-relaxed mb-10">
+                            "A visionary leader who understands that numbers tell a story, but people write it. Hugh
+                            bridges that gap perfectly."
+                        </blockquote>
+                        <footer class="text-base flex items-center gap-4">
+                            <div class="h-px bg-white/20 w-12"></div>
+                            <div>
+                                <strong class="text-white block font-semibold">David Ross</strong>
+                                <span class="text-slate-500">Managing Director</span>
+                            </div>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-slate-900 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 Hugh Massie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

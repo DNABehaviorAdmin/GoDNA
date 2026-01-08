@@ -1,0 +1,147 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Base Variable Defaults */
+:root {
+    --accent-glow: 45, 212, 191;
+    /* Teal base */
+}
+
+/* 1. Reveal Animations */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Magnetic Buttons */
+.magnetic-btn {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+/* 3. Floating Chips Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.delay-100 {
+    animation-delay: 1s;
+}
+
+.delay-200 {
+    animation-delay: 2s;
+}
+
+.delay-300 {
+    animation-delay: 3s;
+}
+
+/* 4. Spotlight Card */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    /* Very subtle base */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    /* Border width */
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.15),
+            transparent 40%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+/* Inner glow pool */
+.spotlight-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.04),
+            transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 5. Smooth Transition for Theme Shifting */
+body {
+    transition: background-color 0.5s ease;
+}
+
+/* 6. Ambient Shadow Pools */
+.ambient-shadow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal-section,
+    .magnetic-btn,
+    .animate-float,
+    .spotlight-card::before,
+    .spotlight-card::after {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}

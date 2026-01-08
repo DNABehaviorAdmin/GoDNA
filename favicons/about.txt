@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: PT Serif
+- Font Author: undefined
+- Font Source: https://fonts.gstatic.com/s/ptserif/v18/EJRVQgYoZZY2vCFuvDFRxL6ddjb-.ttf
+- Font License: undefined)
